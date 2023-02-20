@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "igem_bacteria"
+version = "1.0.a0"
+description = "Python package of bacteria iGEM abstract parts"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE"}
+keywords = ["igem", "synthetic biology"]
+authors = [
+  { name="Gonzalo Vidal", email="g.a.vidal-pena2@ncl.ac.uk" }
+]
+maintainers = [
+  {name = "Gonzalo Vidal", email = "g.a.vidal-pena2@ncl.ac.uk"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+  'sbol3',
+  'sbol-utilities',
+  'tyto'
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest < 5.0.0",
+  "pytest-cov[all]"
+]
+
+[project.urls]
+"Homepage" = "https://igem.org/"
+"Bug Tracker" = "https://github.com/iGEM-Engineering/iGEM-bacteria-package/issues"
