@@ -1,4 +1,10 @@
-from igem_parts.bacterial_parts import j23101, podd_backbone
+from igem_parts.bacterial_parts import j23101, j23101_seq, podd_backbone, podd_backbone_seq
+import sbol3
+import tyto
+from typing import Tuple
+from sbol_utilities.component import dna_component_with_sequence
+from sbol_utilities.helper_functions import is_plasmid
+
 
 def part_in_backbone(identity: str, part: sbol3.Component, backbone: sbol3.Component, linear:bool=False, **kwargs) -> Tuple[sbol3.Component, sbol3.Sequence]:
     """Creates a Part in Backbone Component and its Sequence.
@@ -50,8 +56,10 @@ def part_in_backbone(identity: str, part: sbol3.Component, backbone: sbol3.Compo
     # adding topology
     part_in_backbone_component.types.append(topology_type)
     return part_in_backbone_component, part_in_backbone_seq
+
+doc = sbol3.Document()
+sbol3.set_namespace('https://github.com/Gonza10V')
+doc.add([j23101, j23101_seq, podd_backbone, podd_backbone_seq])
   
-  dist_j23101_in_podd = part_in_backbone('j23101_in_podd', j23101, podd_backbone)
-
-
+dist_j23101_in_podd, dist_j23101_in_podd_seq = part_in_backbone('j23101_in_podd', j23101, podd_backbone)
 
